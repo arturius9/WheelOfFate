@@ -1,0 +1,27 @@
+
+Provided solution consists of 3 projects:
+
+-WebApi part
+-UI part (MVC)
+-WebApi Unit Tests
+
+SupportWheelsOfFateOnlyWebApi.sln - contains only WebApi and its Unit Test projects
+SupportWheelsOfFateOnlyMVC.sln - contains only MVC project
+SupportWheelsOfFateAll.sln - contains all 3 projects
+
+Due to lack of time I have skipped unit tests for MVC and also I didn't play with UI creation much to make its look and feel nicer.
+
+How to run:
+
+Option 1:
+
+1. Open SupportWheelsOfFateAll.sln, build and Publish SuppotWheelOfFateWebApi project to IIS.
+2. In SuppotWheelOfFateMVC project in appsettings.json update base url to WebApi
+3. Build and Publish SupportWheelsOfFateMVC project to IIS.
+
+Option 2:
+
+1. Open SupportWheelsOfFateOnlyWebApi.sln, build and Run WebApi from VS.
+2. Open SupportWheelsOfFateOnlyMVC.sln, update base url to WebApi in appsettings.json
+3. Build and Run from VS.
+

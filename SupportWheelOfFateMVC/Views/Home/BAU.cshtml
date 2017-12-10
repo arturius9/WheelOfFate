@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SupportWheelOfFateWebApi.Data.BAU>
+@{
+    ViewData["Title"] = "View";
+}
+
+<h2>BAU</h2>
+
+<form asp-action="PostDate" asp-controller="Home">
+    <div class="container">
+        <div class="row">
+            <div>
+                @Html.Label("Select date", null)
+                <input type="date" name="date" value="@ViewData["date"]" />
+                <input type="submit" value="Get/Create BAU" />
+            </div>
+        </div>
+    </div>
+</form>
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HalfOfTheDay)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmployeeFullName)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HalfOfTheDay)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeFullName)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

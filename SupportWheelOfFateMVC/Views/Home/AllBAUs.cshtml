@@ -1,0 +1,57 @@
+﻿@model IEnumerable<SupportWheelOfFateWebApi.Data.BAU>
+@{
+    ViewData["Title"] = "View";
+}
+
+@if (ViewData["info"] != null && ViewData["info"].ToString() != "")
+{
+    <br/>
+    @Html.Label(ViewData["info"].ToString())
+    <br/>
+}
+else
+{
+@if (Model.Any())
+{
+    <h2>BAUs</h2>
+
+    <form asp-action="DeleteAllBaus" asp - controller="Home">
+        <input type="Submit" value="Delete All BAUs" onclick="return confirm('Are you sure you wish to delete all BAUs');" />
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.HalfOfTheDay)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmployeeFullName)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HalfOfTheDay)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeFullName)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h3>No BAUs found</h3>
+}}
